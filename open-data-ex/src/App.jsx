@@ -40,19 +40,18 @@ function Api() {
     lon: ''
   });
 
-  useEffect(() => {
-    const getLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-          const lat = position.coords.latitude.toFixed(3);
-          const lon = position.coords.longitude.toFixed(3);
-          setWeatherData(prevData => ({ ...prevData, lat, lon }));
-          getWeather(lat, lon);
-        });
-      } else {
-        alert("Your browser does not support geolocation!");
-      }
-    };
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const lat = position.coords.latitude.toFixed(3);
+        const lon = position.coords.longitude.toFixed(3);
+        setWeatherData(prevData => ({ ...prevData, lat, lon }));
+        getWeather(lat, lon);
+      });
+    } else {
+      alert("Your browser does not support geolocation!");
+    }
+  };
 
     const getWeather = (lat, lon) => {
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -72,8 +71,9 @@ function Api() {
         .catch(error => console.error("Error fetching weather data:", error));
     };
 
-    getLocation();
-  }, []);
+  
+
+  
 
 
 
@@ -81,8 +81,8 @@ function Api() {
     <div className="weather">
       <h3>Weather at your location</h3>
       <div className="buttons">
-        <button>Check the weather for your location</button>
-        <button>Check the weather for random location</button>
+        <button onClick={getLocation}>Check the weather for your location</button>
+        <button onClick>Check the weather for random location</button>
       </div>
       <p>Latitude: {weatherData.lat}, Longitude: {weatherData.lon}</p>
       <p>Temperature: {weatherData.temp}</p>
