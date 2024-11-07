@@ -20,7 +20,7 @@ function App() {
 function Header() {
   return (
     <div className="header">
-      <h1>Welcome!</h1>
+      <h1>On this page you can check the weather for your location.</h1>
       <p></p>
     </div>
   );
@@ -75,9 +75,15 @@ function Api() {
     getLocation();
   }, []);
 
+
+
   return (
     <div className="weather">
       <h3>Weather at your location</h3>
+      <div className="buttons">
+        <button>Check the weather for your location</button>
+        <button>Check the weather for random location</button>
+      </div>
       <p>Latitude: {weatherData.lat}, Longitude: {weatherData.lon}</p>
       <p>Temperature: {weatherData.temp}</p>
       <p>Wind Speed: {weatherData.speed}</p>
@@ -87,6 +93,7 @@ function Api() {
     </div>
   );
 }
+
 
 
 export default App;
