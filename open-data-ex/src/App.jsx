@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
@@ -18,8 +16,9 @@ function App() {
 function Header() {
   return (
     <div className="header">
+      <img src="/weather_icon.png" alt="weatherlogo" />
       <h1>On this page you can check the weather for your location.</h1>
-      <p></p>
+      <p>To check</p>
     </div>
   );
 }
@@ -82,17 +81,19 @@ function Api() {
 
   return (
     <div className="weather">
-      <h3>Weather at your location</h3>
+      <h3>Check the weather for...</h3>
       <div className="buttons">
-        <button onClick={getLocation}>Check the weather for your location</button>
-        <button onClick={getRandLocation}>Check the weather for random location</button>
+        <button onClick={getLocation}>your location!</button>
+        <button onClick={getRandLocation}>random location!</button>
       </div>
-      <p>Latitude: {weatherData.lat}, Longitude: {weatherData.lon}</p>
-      <p>Temperature: {weatherData.temp}</p>
-      <p>Wind Speed: {weatherData.speed}</p>
-      <p>Wind Direction: {weatherData.direction}</p>
-      <p>{weatherData.description}</p>
-      {weatherData.icon && <img src={weatherData.icon} alt="Weather icon" />}
+      <div className="stats">
+        <p>Latitude: {weatherData.lat}, Longitude: {weatherData.lon}</p>
+        <p>Temperature: {weatherData.temp}</p>
+        <p>Wind Speed: {weatherData.speed}</p>
+        <p>Wind Direction: {weatherData.direction}</p>
+        <p>{weatherData.description}</p>
+        {weatherData.icon && <img src={weatherData.icon} alt="Weather icon" />}
+      </div>
     </div>
   );
 }
