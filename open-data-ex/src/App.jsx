@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import axios from 'axios'
 import './App.css'
 
@@ -27,8 +25,8 @@ function Header() {
 }
 
 function Api() {
-  const iconUrl = 'http://openweathermap.org/img/wn/';
-  const apiKey = '';
+  const iconUrl = 'http://openweathermap.org/img/wn/'
+  const apiKey = ''
 
   const [weatherData, setWeatherData] = useState({
     temp: '',
@@ -43,15 +41,15 @@ function Api() {
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        const lat = position.coords.latitude.toFixed(3);
-        const lon = position.coords.longitude.toFixed(3);
-        setWeatherData(prevData => ({ ...prevData, lat, lon }));
+        const lat = position.coords.latitude.toFixed(3) //leveysaste
+        const lon = position.coords.longitude.toFixed(3) //pituusaste
+        setWeatherData(prevData => ({ ...prevData, lat, lon }))
         getWeather(lat, lon);
-      });
+      })
     } else {
       alert("Your browser does not support geolocation!");
     }
-  };
+  }
 
     const getWeather = (lat, lon) => {
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -66,13 +64,18 @@ function Api() {
             icon: `${iconUrl}${data.weather[0].icon}@2x.png`,
             lat,
             lon
-          });
+          })
         })
-        .catch(error => console.error("Error fetching weather data:", error));
-    };
+        .catch(error => console.error("Error fetching weather data:", error))
+    }
 
   
-
+  const getRandLocation = () => {
+    const lat = (Math.random()*180 - 90).toFixed(3) //leveysaste (-)90
+    const lon = (Math.random()*360 - 180).toFixed(3) //pituusaste (-)180
+    setWeatherData(prevData => ({...prevData,lat,lon}))
+    getWeather(lat,lon)
+  }
   
 
 
@@ -82,7 +85,7 @@ function Api() {
       <h3>Weather at your location</h3>
       <div className="buttons">
         <button onClick={getLocation}>Check the weather for your location</button>
-        <button onClick>Check the weather for random location</button>
+        <button onClick={getRandLocation}>Check the weather for random location</button>
       </div>
       <p>Latitude: {weatherData.lat}, Longitude: {weatherData.lon}</p>
       <p>Temperature: {weatherData.temp}</p>
@@ -96,6 +99,6 @@ function Api() {
 
 
 
-export default App;
+export default App
 
 //
