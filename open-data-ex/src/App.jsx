@@ -9,12 +9,30 @@ function App() {
   return (
     <>
       <div>
-
+        <Header />
+        <Api />
       </div>
     </>
   )
 }
 
-export default App
+function Header() {
+  return (
+    <div className="header">
+      <h1>Welcome!</h1>
+    </div>
+  );
+}
+
+function Api() {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+
+export default App;
 
 //
