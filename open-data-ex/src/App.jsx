@@ -86,10 +86,10 @@ function Api() {
         <button onClick={getRandLocation}>random location!</button>
       </div>
       <div className="stats">
-        <p>Latitude: {weatherData.lat}, Longitude: {weatherData.lon}</p>
-        <p>Temperature: {weatherData.temp}</p>
-        <p>Wind Speed: {weatherData.speed}</p>
-        <p>Wind Direction: {weatherData.direction}</p>
+        <p><img src="/compass.png" alt="compasslogo" />Latitude: {weatherData.lat}, Longitude: {weatherData.lon}</p>
+        <p><img src="/thermometer.png" alt="thermologo" />Temperature: {weatherData.temp}</p>
+        <p><img src="/wind.png" alt="windlogo" />Wind Speed: {weatherData.speed}</p>
+        <p><img src="/wind-direction.png" alt="winddirectionlogo" />Wind Direction: {weatherData.direction}</p>
         <p>{weatherData.description}</p>
         {weatherData.icon && <img src={weatherData.icon} alt="Weather icon" />}
       </div>
