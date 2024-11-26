@@ -17,8 +17,7 @@ function Header() {
   return (
     <div className="header">
       <img src="/weather_icon.png" alt="weatherlogo" />
-      <h1>On this page you can check the weather for your location.</h1>
-      <p>To check</p>
+      <h1>On this page you can check the weather!</h1>
     </div>
   );
 }

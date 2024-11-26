@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: #227B94;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid 10px #16325B;
+    border-style:dashed;
+    
+  }
+
+.header h1{
+    color: #FFDC7F;
+    text-shadow: -1px -1px 0 #16325B, 1px -1px 0 #16325B, -1px 1px 0 #16325B, 1px 1px 0 #16325B;
+}  
+  
+.header img {
+    margin-top: 10px;
+    background-color: #16325B;
+    height: auto;
+    width: auto;
+    border: solid 2px;
+    border-radius: 10px;
+  }
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #227B94;
+    border: solid 10px #16325B;
+    border-style:dashed;
+}
+
+.weather p, h3{
+    color: #FFDC7F;
+    text-shadow: -1px -1px 0 #16325B, 1px -1px 0 #16325B, -1px 1px 0 #16325B, 1px 1px 0 #16325B;
+}
+
